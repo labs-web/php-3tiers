@@ -5,13 +5,13 @@ $errorMessage = '';
 
 if( isset($_POST['studentSubmitButton']) && $_POST['studentSubmitButton'] == 'Add Student' ) {
 
-    $studentBllObj = new StudentBLL();
+    $studentBllObj = new StudentBLO();
     $studentName = $_POST['studentName'];
     $studentRoll = $_POST['studentRoll'];
     $studentEmail = $_POST['studentEmail'];
     $studentDateOfBirth = $_POST['studentDateOfBirth'];
 
-    $newStudent = new StudentDTO(0, $studentRoll, $studentName, $studentEmail, $studentDateOfBirth);
+    $newStudent = new Student(0, $studentName, $studentEmail, $studentDateOfBirth);
     $addStudentResult = $studentBllObj->AddStudent($newStudent);
 
     if($addStudentResult > 0) {
@@ -40,29 +40,23 @@ include_once("Templates/header.php");
 <?php endif; ?>
 
 
-    <form action="add.php" method="post" name="studentInfoForm" id="studentInfoForm" class="form-horizontal">
+    <form action="add.php" method="POST" name="studentInfoForm" id="studentInfoForm" class="form-horizontal">
         <div class="form-group">
             <label for="studentName" class="col-sm-2 control-label">Name</label>
             <div class="col-sm-4">
-                <input type="text" value="" name="studentName" id="studentName" class="form-control" placeholder="Name" />
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="studentRoll" class="col-sm-2 control-label">Roll</label>
-            <div class="col-sm-4">
-                <input type="text" value="" name="studentRoll" id="studentRoll" class="form-control" placeholder="Roll" />
+                <input type="text"  name="studentName" id="studentName" class="form-control" placeholder="Name" />
             </div>
         </div>
         <div class="form-group">
             <label for="studentEmail" class="col-sm-2 control-label">Email</label>
             <div class="col-sm-4">
-                <input type="email" value="" name="studentEmail" id="studentEmail" class="form-control" placeholder="Email" />
+                <input type="email"  name="studentEmail" id="studentEmail" class="form-control" placeholder="Email" />
             </div>
         </div>
         <div class="form-group">
             <label for="studentDateOfBirth" class="col-sm-2 control-label">Date Of Birth</label>
             <div class="col-sm-3">
-                <input type="text" value="" name="studentDateOfBirth" id="studentDateOfBirth" class="form-control" placeholder="Date Of Birth" />
+                <input type="text"  name="studentDateOfBirth" id="studentDateOfBirth" class="form-control" placeholder="Date Of Birth" />
             </div>
         </div>
 

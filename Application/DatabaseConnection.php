@@ -7,20 +7,21 @@
 
 class DatabaseConnection {
 
-    private $dbUser;
-    private $dbPassword;
-    private $dbName;
-    private $dbHost;
-
-    public function DatabaseConnection() {
-        $this->dbUser = 'root';
-        $this->dbPassword = '';
-        $this->dbName = 'stdinfo';
-        $this->dbHost = 'localhost';
-    }
-
-    public function GetDB() {
-        $db = new ezSQL_mysql($this->dbUser, $this->dbPassword, $this->dbName, $this->dbHost);
-        return $db;
-    }
+        private $host = "localhost";
+        private $user = 'root';
+        private $dbname = 'stdinfo';
+        private $password = '';
+    
+        public function connect(){
+            try{
+               $dsn = "mysql:host=" . $this->host . ";dbname=" . $this->dbname;
+               $db = new PDO($dsn, $this->user , $this->password);
+               $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE , PDO::FETCH_ASSOC);
+               return $db;
+            }catch(PDOException $e){
+               echo'connection failed' . $e->getMessage();
+            }
+        }
+    
 }
+?>

@@ -1,11 +1,9 @@
 <?php
-
+define('Root', dirname(__FILE__));
     error_reporting(E_ALL);
 
-    require_once './Library/ez_sql_core.php';
-    require_once './Library/ez_sql_mysql.php';
-    require_once './Application/DatabaseConnection.php';
-    require_once './Application/DAL/StudentDAL.php';
-    require_once './Application/BLL/StudentBLL.php';
-    require_once './Application/DTO/StudentDTO.php';
+    require_once Root . './Application/DatabaseConnection.php';
+    require_once Root . './Application/DAL/StudentDAO.php';
+    require_once Root . './Application/BLL/StudentBLO.php';
+    require_once Root . './Application/Entities/Student.php';
 

@@ -4,7 +4,7 @@ require_once '../../loader.php';
 
 $testFunctions = new StudentBLO();
 
-// $printData = $testFunctions->GetAllStudents();
+$printData = $testFunctions->GetAllStudents();
 // $printData = $testFunctions->GetStudent(1);
 // $printData = $testFunctions->DeleteStudent(5);
 
@@ -41,7 +41,9 @@ $testFunctions = new StudentBLO();
 // --------------- invalid student----------------
 
     
-
+echo "<pre>";
+var_dump($printData);
+echo "</pre>";
 
 
 
